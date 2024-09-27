@@ -1,0 +1,211 @@
+.App {
+  text-align: center;
+}
+
+.madimi-one-regular {
+  font-family: "Madimi One", sans-serif !important;
+  font-weight: 100;
+  font-style: normal;
+  font-size: x-large;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+#img_profilo {
+  height: 80px;
+  width: 80px;
+  cursor: pointer;
+  transition: transform .2s;
+}
+
+#img_profilo:hover {
+  transform: scale(1.5);
+}
+
+.nonogram {
+  display: grid;
+  row-gap: 2px; /* Distanza tra gli indizi di colonna e la griglia */
+}
+
+.hints-column {
+  display: grid;
+  grid-template-columns: repeat(6, 65px); /* Assicurati che questo corrisponda al numero di colonne e alla larghezza delle celle */
+  justify-content: center;
+  text-align: center;
+  gap: 2px;
+  place-self: start;
+}
+
+.hint {
+  width: 65px;
+  min-height: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.hint.highlight {
+  /* Oppure usa un'ombra o un bordo per un effetto diverso */
+  box-shadow: 0 0 5px rgb(254, 195, 76);
+  opacity: 0.9;
+}
+
+.col-hint {
+  flex-direction: column;
+}
+
+.grid-with-row-hints {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.nonogram-row {
+  display: grid;
+  grid-template-columns: auto repeat(5, 65px); /* Auto per la colonna degli indizi di riga, poi definisci le celle */
+  gap: 2px;
+}
+
+.nonogram-cell, .cell {
+  width: 65px;
+  height: 65px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nonogram-cell.filled {
+  background-color: #0B4047;
+}
+
+
+.nonogram-cell.filled.aiuto {
+  background-color: rgb(28, 209, 143);
+}
+
+#wrong {
+  height: 65px;
+  width: 65px;
+  background-image: url(./game/img/svg/icone/ics.svg);
+  animation: fadeIn 1s ;
+  transform: none;
+}
+
+.nonogram-cell.filled.aiuto:hover, .nonogram-cell.wrong:hover {
+  transform: none;
+  cursor: auto;
+}
+
+.nonogram-cell {
+  border: 1px solid #0B4047;
+  cursor: pointer;
+  transition: transform .2s;
+}
+
+.nonogram-cell:hover{
+  transform: scale(1.05);
+}
+
+.score {
+  border-radius: 5px;
+  color: #ef476e;
+  background-color: rgba(254, 195, 76, 0.6);
+  border-right: 2px;
+}
+
+
+.topbar {
+  background-color: rgb(28, 137, 154);
+  border: solid #ef476e;
+  border-radius: 3px;
+  color: rgb(254, 195, 76);
+  cursor: default;
+}
+
+button#restart, button#help, button#back-home {
+  background-color: rgba(254, 195, 76, 0.3);
+}
+
+img#restart, img#help, img#back-home {
+  transition: transform .2s;
+}
+
+img#restart:hover, img#help:hover, img#back-home:hover {
+  transform: scale(1.2);
+}
+
+
+
+.modal-section {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.modal-content {
+  height: 50vh;
+  width: 30vw !important;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-color: rgb(246, 234, 203) !important;
+  transform: translate(-50%, -50%);
+  justify-content: space-evenly;
+  
+}
+
+.show-modal {
+  opacity: 1;
+  visibility: visible;
+  animation: fadeIn 1.5s ;
+}
+
+@keyframes fadeIn {
+
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+  
+}
+
+.timer {
+  width: 50px;
+}
